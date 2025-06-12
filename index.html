@@ -7,66 +7,82 @@
 	<script src='https://cdn.tailwindcss.com'></script>
 	<link rel='stylesheet' href='assets/css/style.css'>
 </head>
-<body>
+<body class="bg-gray-50">
 	<!-- Header -->
 	<header class="bg-white shadow-md">
 		<nav class="container mx-auto py-4 px-6">
 			<div class="flex items-center justify-between">
 				<a href="index.html" class="text-2xl font-bold text-gray-800">Coastal Escape</a>
-				<div class="space-x-6">
+				<div class="hidden md:flex items-center space-x-6">
 					<a href="index.html" class="text-gray-600 hover:text-blue-500">Home</a>
 					<a href="destinations.html" class="text-gray-600 hover:text-blue-500">Destinations</a>
 					<a href="packages.html" class="text-gray-600 hover:text-blue-500">Packages</a>
 					<a href="blog.html" class="text-gray-600 hover:text-blue-500">Blog</a>
 					<a href="contact.html" class="text-gray-600 hover:text-blue-500">Contact</a>
 				</div>
+				<div class="md:hidden">
+					<button id="mobile-menu-button" class="text-gray-600 hover:text-blue-500 focus:outline-none">
+						<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+							<path fill-rule="evenodd" d="M4 5h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 6h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1zm0 6h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 011-1z"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div class="md:hidden hidden" id="mobile-menu">
+				<div class="flex flex-col space-y-4 mt-4">
+					<a href="index.html" class="text-gray-600 hover:text-blue-500 block py-2 px-4">Home</a>
+					<a href="destinations.html" class="text-gray-600 hover:text-blue-500 block py-2 px-4">Destinations</a>
+					<a href="packages.html" class="text-gray-600 hover:text-blue-500 block py-2 px-4">Packages</a>
+					<a href="blog.html" class="text-gray-600 hover:text-blue-500 block py-2 px-4">Blog</a>
+					<a href="contact.html" class="text-gray-600 hover:text-blue-500 block py-2 px-4">Contact</a>
+				</div>
 			</div>
 		</nav>
 	</header>
 
 	<!-- Hero Section -->
-	<section class="bg-blue-100 py-20">
+	<section class="bg-blue-100 py-24">
 		<div class="container mx-auto px-6 text-center">
-			<h1 class="text-4xl font-bold text-gray-800 mb-4">Discover Your Dream Coastal Getaway</h1>
-			<p class="text-lg text-gray-700 mb-8">Explore stunning beaches, luxurious resorts, and unforgettable adventures.</p>
-			<a href="destinations.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">Explore Destinations</a>
+			<h1 class="text-5xl font-bold text-gray-800 mb-6">Find Your Perfect Coastal Escape</h1>
+			<p class="text-xl text-gray-700 mb-12">Discover breathtaking beaches, luxurious resorts, and unforgettable adventures. Your dream vacation starts here.</p>
+			<a href="destinations.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg">Explore Destinations</a>
 		</div>
-		<div class="container mx-auto mt-8">
-			<img src="https://picsum.photos/800/400" alt="Coastal Landscape" class="rounded-lg shadow-md">
+		<div class="container mx-auto mt-12">
+			<img src="https://picsum.photos/1200/600" alt="Coastal Landscape" class="rounded-xl shadow-2xl w-full object-cover">
 		</div>
 	</section>
 
 	<!-- Featured Destinations -->
-	<section class="py-16">
+	<section class="py-20">
 		<div class="container mx-auto px-6">
-			<h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Featured Destinations</h2>
+			<h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Featured Destinations</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				<!-- Destination 1 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img src="https://picsum.photos/600/400" alt="Destination 1" class="w-full h-48 object-cover">
-					<div class="p-4">
-						<h3 class="text-xl font-semibold text-gray-800 mb-2">Santorini, Greece</h3>
-						<p class="text-gray-700">Experience the breathtaking sunsets and iconic white-washed villages of Santorini. Indulge in delicious Mediterranean cuisine and explore ancient ruins.</p>
+				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+					<img src="https://picsum.photos/600/400" alt="Destination 1" class="w-full h-64 object-cover">
+					<div class="p-6">
+						<h3 class="text-2xl font-semibold text-gray-800 mb-3">Santorini, Greece</h3>
+						<p class="text-gray-700 leading-relaxed">Experience the breathtaking sunsets and iconic white-washed villages of Santorini. Indulge in delicious Mediterranean cuisine and explore ancient ruins. Imagine yourself sipping wine as the sun dips below the horizon, painting the sky in fiery hues.</p>
 						<a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn More</a>
 					</div>
 				</div>
 
 				<!-- Destination 2 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img src="https://picsum.photos/600/401" alt="Destination 2" class="w-full h-48 object-cover">
-					<div class="p-4">
-						<h3 class="text-xl font-semibold text-gray-800 mb-2">Maldives</h3>
-						<p class="text-gray-700">Discover the pristine beaches, crystal-clear waters, and vibrant coral reefs of the Maldives. Perfect for snorkeling, diving, and relaxation.</p>
+				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+					<img src="https://picsum.photos/600/401" alt="Destination 2" class="w-full h-64 object-cover">
+					<div class="p-6">
+						<h3 class="text-2xl font-semibold text-gray-800 mb-3">Maldives</h3>
+						<p class="text-gray-700 leading-relaxed">Discover the pristine beaches, crystal-clear waters, and vibrant coral reefs of the Maldives. Perfect for snorkeling, diving, and relaxation. Picture yourself floating in turquoise waters, surrounded by colorful fish and vibrant coral. Paradise awaits.</p>
 						<a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn More</a>
 					</div>
 				</div>
 
 				<!-- Destination 3 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img src="https://picsum.photos/600/402" alt="Destination 3" class="w-full h-48 object-cover">
-					<div class="p-4">
-						<h3 class="text-xl font-semibold text-gray-800 mb-2">Bali, Indonesia</h3>
-						<p class="text-gray-700">Immerse yourself in the rich culture, lush landscapes, and stunning beaches of Bali. Visit ancient temples, enjoy yoga retreats, and surf the famous waves.</p>
+				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+					<img src="https://picsum.photos/600/402" alt="Destination 3" class="w-full h-64 object-cover">
+					<div class="p-6">
+						<h3 class="text-2xl font-semibold text-gray-800 mb-3">Bali, Indonesia</h3>
+						<p class="text-gray-700 leading-relaxed">Immerse yourself in the rich culture, lush landscapes, and stunning beaches of Bali. Visit ancient temples, enjoy yoga retreats, and surf the famous waves. Feel the warm sun on your skin as you explore rice paddies and discover hidden waterfalls.</p>
 						<a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn More</a>
 					</div>
 				</div>
@@ -74,9 +90,26 @@
 		</div>
 	</section>
 
+	<!-- Call to Action -->
+	<section class="bg-blue-200 py-16">
+		<div class="container mx-auto px-6 text-center">
+			<h2 class="text-3xl font-bold text-gray-800 mb-6">Ready to Start Planning Your Trip?</h2>
+			<p class="text-lg text-gray-700 mb-8">Contact our expert travel advisors today and let us help you create the perfect coastal escape.</p>
+			<a href="contact.html" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg">Contact Us</a>
+		</div>
+	</section>
+
 	<!-- Footer -->
-	<footer class="bg-gray-800 py-8 text-white text-center">
+	<footer class="bg-gray-800 py-12 text-white text-center">
 		<p>&copy; 2024 Coastal Escape. All rights reserved.</p>
 	</footer>
+	<script>
+		const button = document.querySelector('#mobile-menu-button');
+		const menu = document.querySelector('#mobile-menu');
+
+		button.addEventListener('click', () => {
+			menu.classList.toggle('hidden');
+		});
+	</script>
 </body>
 </html>
