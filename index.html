@@ -48,7 +48,32 @@
 			<a href="destinations.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg">Explore Destinations</a>
 		</div>
 		<div class="container mx-auto mt-12">
-			<img src="https://picsum.photos/1200/600" alt="Coastal Landscape" class="rounded-xl shadow-2xl w-full object-cover">
+			<!-- Carousel -->
+			<div class="relative overflow-hidden rounded-xl shadow-2xl">
+				<div class="carousel-container">
+					<div class="carousel-slide">
+						<img src="https://picsum.photos/1200/600?random=1" alt="Coastal Landscape 1" class="w-full object-cover">
+					</div>
+					<div class="carousel-slide">
+						<img src="https://picsum.photos/1200/600?random=2" alt="Coastal Landscape 2" class="w-full object-cover">
+					</div>
+					<div class="carousel-slide">
+						<img src="https://picsum.photos/1200/600?random=3" alt="Coastal Landscape 3" class="w-full object-cover">
+					</div>
+				</div>
+
+				<!-- Navigation Buttons -->
+				<button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 opacity-50 hover:opacity-100" onclick="prevSlide()">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+					</svg>
+				</button>
+				<button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 opacity-50 hover:opacity-100" onclick="nextSlide()">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+					</svg>
+				</button>
+			</div>
 		</div>
 	</section>
 
@@ -59,7 +84,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				<!-- Destination 1 -->
 				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-					<img src="https://picsum.photos/600/400" alt="Destination 1" class="w-full h-64 object-cover">
+					<img src="https://picsum.photos/600/400?random=4" alt="Destination 1" class="w-full h-64 object-cover">
 					<div class="p-6">
 						<h3 class="text-2xl font-semibold text-gray-800 mb-3">Santorini, Greece</h3>
 						<p class="text-gray-700 leading-relaxed">Experience the breathtaking sunsets and iconic white-washed villages of Santorini. Indulge in delicious Mediterranean cuisine and explore ancient ruins. Imagine yourself sipping wine as the sun dips below the horizon, painting the sky in fiery hues.</p>
@@ -69,7 +94,7 @@
 
 				<!-- Destination 2 -->
 				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-					<img src="https://picsum.photos/600/401" alt="Destination 2" class="w-full h-64 object-cover">
+					<img src="https://picsum.photos/600/401?random=5" alt="Destination 2" class="w-full h-64 object-cover">
 					<div class="p-6">
 						<h3 class="text-2xl font-semibold text-gray-800 mb-3">Maldives</h3>
 						<p class="text-gray-700 leading-relaxed">Discover the pristine beaches, crystal-clear waters, and vibrant coral reefs of the Maldives. Perfect for snorkeling, diving, and relaxation. Picture yourself floating in turquoise waters, surrounded by colorful fish and vibrant coral. Paradise awaits.</p>
@@ -79,7 +104,7 @@
 
 				<!-- Destination 3 -->
 				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-					<img src="https://picsum.photos/600/402" alt="Destination 3" class="w-full h-64 object-cover">
+					<img src="https://picsum.photos/600/402?random=6" alt="Destination 3" class="w-full h-64 object-cover">
 					<div class="p-6">
 						<h3 class="text-2xl font-semibold text-gray-800 mb-3">Bali, Indonesia</h3>
 						<p class="text-gray-700 leading-relaxed">Immerse yourself in the rich culture, lush landscapes, and stunning beaches of Bali. Visit ancient temples, enjoy yoga retreats, and surf the famous waves. Feel the warm sun on your skin as you explore rice paddies and discover hidden waterfalls.</p>
@@ -110,6 +135,56 @@
 		button.addEventListener('click', () => {
 			menu.classList.toggle('hidden');
 		});
+
+		let slideIndex = 0;
+		const slides = document.querySelectorAll('.carousel-slide');
+
+		function showSlide(n) {
+			if (n < 0) {
+				slideIndex = slides.length - 1;
+			}
+			if (n >= slides.length) {
+				slideIndex = 0;
+			}
+
+			for (let i = 0; i < slides.length; i++) {
+				slides[i].style.display = 'none';
+			}
+
+			slides[slideIndex].style.display = 'block';
+		}
+
+		function nextSlide() {
+			slideIndex++;
+			showSlide(slideIndex);
+		}
+
+		function prevSlide() {
+			slideIndex--;
+			showSlide(slideIndex);
+		}
+
+		// Initialize carousel
+		showSlide(slideIndex);
+
+		// Autoplay (optional)
+		setInterval(nextSlide, 5000);
 	</script>
+
+	<style>
+		.carousel-container {
+			display: flex;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			-webkit-overflow-scrolling: touch; /* For iOS momentum scrolling */
+		}
+
+		.carousel-slide {
+			flex: 1 0 100%; /* Make each slide take up 100% of the container */
+			width: 100%;
+			scroll-snap-align: start;
+			display: none; /* Hide all slides by default */
+		}
+	</style>
 </body>
 </html>
