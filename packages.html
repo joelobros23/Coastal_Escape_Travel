@@ -49,7 +49,7 @@
 							<span class="text-xl font-bold text-gray-900">$999</span>
 							<span class="text-gray-500">/person</span>
 						</div>
-						<button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+						<button onclick="openModal('coastal-retreat')" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
 					</div>
 				</div>
 
@@ -63,7 +63,7 @@
 							<span class="text-xl font-bold text-gray-900">$1299</span>
 							<span class="text-gray-500">/person</span>
 						</div>
-						<button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+						<button onclick="openModal('island-adventure')" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
 					</div>
 				</div>
 
@@ -77,7 +77,7 @@
 							<span class="text-xl font-bold text-gray-900">$1999</span>
 							<span class="text-gray-500">/person</span>
 						</div>
-						<button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+						<button onclick="openModal('luxury-cruise')" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
 					</div>
 				</div>
 
@@ -91,7 +91,7 @@
 							<span class="text-xl font-bold text-gray-900">$1499</span>
 							<span class="text-gray-500">/couple</span>
 						</div>
-						<button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+						<button onclick="openModal('romantic-getaway')" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
 					</div>
 				</div>
 
@@ -105,7 +105,7 @@
 							<span class="text-xl font-bold text-gray-900">$2499</span>
 							<span class="text-gray-500">/family</span>
 						</div>
-						<button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+						<button onclick="openModal('family-fun')" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
 					</div>
 				</div>
 
@@ -119,7 +119,56 @@
 							<span class="text-xl font-bold text-gray-900">$799</span>
 							<span class="text-gray-500">/person</span>
 						</div>
-						<button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+						<button onclick="openModal('eco-tourism')" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Book Now</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Booking Modal -->
+		<div id="bookingModal" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+			<div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+				<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+				<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+				<div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+					<div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+						<h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+							Book Your Package
+						</h3>
+						<p id="package-name" class="mt-2 text-sm text-gray-500">Package Name</p>
+						<div class="mt-2">
+							<form id="bookingForm">
+								<div class="mb-4">
+									<label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+									<input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+								</div>
+								<div class="mb-4">
+									<label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+									<input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+								</div>
+								<div class="mb-4">
+									<label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone:</label>
+									<input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+								</div>
+								<div class="mb-4">
+									<label for="travelers" class="block text-gray-700 text-sm font-bold mb-2">Number of Travelers:</label>
+									<input type="number" id="travelers" name="travelers" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" min="1" required>
+								</div>
+								<div class="mb-4">
+									<label for="dates" class="block text-gray-700 text-sm font-bold mb-2">Preferred Dates:</label>
+									<input type="date" id="dates" name="dates" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+								</div>
+								<input type="hidden" id="package_id" name="package_id" value="">
+							</form>
+						</div>
+					</div>
+					<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+						<button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm" onclick="submitBooking()">
+							Submit Inquiry
+						</button>
+						<button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal()">
+							Cancel
+						</button>
 					</div>
 				</div>
 			</div>
@@ -129,5 +178,62 @@
 	<footer class="bg-gray-800 py-8 text-white text-center">
 		<p>&copy; 2023 Coastal Escape Travel. All rights reserved.</p>
 	</footer>
+
+	<script>
+		function openModal(packageId) {
+			document.getElementById('bookingModal').classList.remove('hidden');
+			document.getElementById('package_id').value = packageId;
+
+			let packageName = '';
+			if(packageId === 'coastal-retreat') {
+				packageName = 'Coastal Retreat Package';
+			} else if (packageId === 'island-adventure') {
+				packageName = 'Island Adventure Package';
+			} else if (packageId === 'luxury-cruise') {
+				packageName = 'Luxury Cruise Package';
+			} else if (packageId === 'romantic-getaway') {
+				packageName = 'Romantic Getaway Package';
+			} else if (packageId === 'family-fun') {
+				packageName = 'Family Fun Package';
+			} else if (packageId === 'eco-tourism') {
+				packageName = 'Eco-Tourism Adventure';
+			}
+
+			document.getElementById('package-name').innerText = packageName;
+		}
+
+		function closeModal() {
+			document.getElementById('bookingModal').classList.add('hidden');
+		}
+
+		function submitBooking() {
+			// Basic form validation (expand as needed)
+			const name = document.getElementById('name').value;
+			const email = document.getElementById('email').value;
+			const phone = document.getElementById('phone').value;
+			const travelers = document.getElementById('travelers').value;
+			const dates = document.getElementById('dates').value;
+
+			if (!name || !email || !phone || !travelers || !dates) {
+				alert('Please fill out all fields.');
+				return;
+			}
+			const packageId = document.getElementById('package_id').value;
+			// You would typically send this data to a server using AJAX
+			console.log('Booking Details:', {
+				packageId: packageId,
+				name: name,
+				email: email,
+				phone: phone,
+				travelers: travelers,
+				dates: dates
+			});
+
+			alert('Inquiry submitted successfully! We will contact you shortly.');
+			closeModal();
+			document.getElementById("bookingForm").reset();
+
+		}
+	</script>
 </body>
 </html>
