@@ -7,7 +7,7 @@
 	<script src='https://cdn.tailwindcss.com'></script>
 	<link rel='stylesheet' href='assets/css/style.css'>
 </head>
-<body>
+<body class="bg-gray-100">
 	<!-- Navigation Bar -->
 	<nav class="bg-white shadow-md">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,30 +24,60 @@
 						<a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
 					</div>
 				</div>
+				<div class="-mr-2 flex items-center md:hidden">
+					<button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-expanded="false">
+						<span class="sr-only">Open main menu</span>
+						<!-- Menu open: "block", Menu closed: "hidden" -->
+						<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+						</svg>
+						<!--
+						  Icon when menu is open.
+
+						  Heroicon name: outline/x
+
+						  Menu open: "block", Menu closed: "hidden"
+						-->
+						<svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Mobile menu, show/hide based on menu state. -->
+		<div class="md:hidden">
+			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+				<a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+				<a href="destinations.html" class="bg-gray-100 text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Destinations</a>
+				<a href="packages.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Packages</a>
+				<a href="blog.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+				<a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
 			</div>
 		</div>
 	</nav>
 
 	<!-- Destinations Section -->
-	<section class="py-12 bg-gray-50">
+	<section class="py-12">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
 					Explore Our Coastal Destinations
 				</h2>
 				<p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-					Discover the beauty and serenity of the world's most stunning coastlines.
+					Embark on unforgettable journeys to the world's most breathtaking coastal paradises. From pristine beaches to vibrant cultures, discover your next adventure with us.
 				</p>
 			</div>
 
 			<div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				<!-- Destination 1 -->
 				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/600" alt="Coastal Destination 1">
+					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/600" alt="Santorini, Greece">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Santorini, Greece</h3>
 						<p class="mt-2 text-gray-600">
-							Santorini is one of the Cyclades islands in the Aegean Sea. It was devastated by a volcanic eruption in the 16th century BC, forever shaping its rugged landscape. The whitewashed, cubiform houses of its 2 principal towns, Fira and Oia, cling to cliffs above an underwater caldera (crater).
+							Experience the magic of Santorini, a volcanic island in the Cyclades. Admire the iconic whitewashed villages, breathtaking sunsets, and the deep blue Aegean Sea. Indulge in local wines, savor delicious cuisine, and explore ancient ruins.
 						</p>
 						<a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 							Learn More
@@ -57,11 +87,11 @@
 
 				<!-- Destination 2 -->
 				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/601" alt="Coastal Destination 2">
+					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/601" alt="Maui, Hawaii">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Maui, Hawaii</h3>
 						<p class="mt-2 text-gray-600">
-							Maui, known also as “The Valley Isle,” is the second largest Hawaiian island. The island is known for its stunning beaches, including the world-famous Ka'anapali Beach, as well as its volcanic landscape and the dormant volcano Haleakala.
+							Discover the allure of Maui, known as the "Valley Isle." Relax on golden beaches, witness the sunrise from the summit of Haleakala, and immerse yourself in the vibrant Hawaiian culture. Explore lush rainforests, cascading waterfalls, and discover the spirit of Aloha.
 						</p>
 						<a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 							Learn More
@@ -71,11 +101,11 @@
 
 				<!-- Destination 3 -->
 				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/602" alt="Coastal Destination 3">
+					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/602" alt="Amalfi Coast, Italy">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Amalfi Coast, Italy</h3>
 						<p class="mt-2 text-gray-600">
-							The Amalfi Coast is a 50-kilometer stretch of coastline along the southern edge of Italy’s Sorrentine Peninsula, in the Campania region. It's a popular holiday destination, with steep cliffs and a jagged shoreline dotted with small beaches and pastel-colored fishing villages.
+							Journey to the Amalfi Coast, a stunning stretch of coastline in Southern Italy. Explore charming villages perched on cliffs, savor authentic Italian cuisine, and soak up the Mediterranean sun. Hike scenic trails, discover hidden grottos, and experience the "dolce vita."
 						</p>
 						<a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 							Learn More
@@ -85,11 +115,11 @@
 
 				<!-- Destination 4 -->
 				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/603" alt="Coastal Destination 4">
+					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/603" alt="Bali, Indonesia">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Bali, Indonesia</h3>
 						<p class="mt-2 text-gray-600">
-							Bali, known as the "Island of Gods," is an Indonesian island known for its natural beauty, from the iconic rice paddies to beaches and coral reefs. Offshore, the Nusa islands offer scuba diving and snorkeling sites.
+							Uncover the magic of Bali, the "Island of Gods." Explore ancient temples, lush rice paddies, and pristine beaches. Immerse yourself in Balinese culture, learn to surf, and rejuvenate your soul. Witness traditional dances, savor exotic flavors, and experience spiritual awakening.
 						</p>
 						<a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 							Learn More
@@ -99,11 +129,11 @@
 
 				<!-- Destination 5 -->
 				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/604" alt="Coastal Destination 5">
+					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/604" alt="Sydney, Australia">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Sydney, Australia</h3>
 						<p class="mt-2 text-gray-600">
-							Sydney, capital of New South Wales, is one of Australia’s largest cities and is best known for its harbor front Sydney Opera House, with a distinctive sail-like design.
+							Discover the vibrant city of Sydney, a cosmopolitan hub on the Australian coast. Visit the iconic Sydney Opera House, explore the historic Rocks district, and relax on Bondi Beach. Climb the Sydney Harbour Bridge, enjoy world-class dining, and experience the Australian spirit.
 						</p>
 						<a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 							Learn More
@@ -113,11 +143,11 @@
 
 				<!-- Destination 6 -->
 				<div class="bg-white rounded-lg shadow-md overflow-hidden">
-					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/605" alt="Coastal Destination 6">
+					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/605" alt="Maldives">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Maldives</h3>
 						<p class="mt-2 text-gray-600">
-							The Maldives, officially the Republic of Maldives, is a small archipelagic state in South Asia, situated in the Arabian Sea of the Indian Ocean. It lies southwest of Sri Lanka and India.
+							Escape to the Maldives, a tropical paradise in the Indian Ocean. Relax on pristine beaches, snorkel in crystal-clear waters, and stay in luxurious overwater bungalows. Dive with manta rays, enjoy sunset cruises, and experience the ultimate in relaxation and tranquility.
 						</p>
 						<a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 							Learn More
