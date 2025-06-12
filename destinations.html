@@ -70,9 +70,34 @@
 				</p>
 			</div>
 
-			<div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<!-- Filtering and Sorting -->
+			<div class="mt-6 flex flex-col md:flex-row justify-between items-center">
+				<div class="mb-4 md:mb-0">
+					<label for="filter" class="mr-2 text-gray-700">Filter by:</label>
+					<select id="filter" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md max-w-xs">
+						<option value="all">All Destinations</option>
+						<option value="greece">Greece</option>
+						<option value="hawaii">Hawaii</option>
+						<option value="italy">Italy</option>
+						<option value="indonesia">Indonesia</option>
+						<option value="australia">Australia</option>
+						<option value="maldives">Maldives</option>
+					</select>
+				</div>
+
+				<div>
+					<label for="sort" class="mr-2 text-gray-700">Sort by:</label>
+					<select id="sort" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md max-w-xs">
+						<option value="name_asc">Name (A-Z)</option>
+						<option value="name_desc">Name (Z-A)</option>
+					</select>
+				</div>
+			</div>
+
+
+			<div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="destinations-container">
 				<!-- Destination 1 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden" data-destination="greece">
 					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/600" alt="Santorini, Greece">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Santorini, Greece</h3>
@@ -86,7 +111,7 @@
 				</div>
 
 				<!-- Destination 2 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden" data-destination="hawaii">
 					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/601" alt="Maui, Hawaii">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Maui, Hawaii</h3>
@@ -100,7 +125,7 @@
 				</div>
 
 				<!-- Destination 3 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden" data-destination="italy">
 					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/602" alt="Amalfi Coast, Italy">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Amalfi Coast, Italy</h3>
@@ -114,7 +139,7 @@
 				</div>
 
 				<!-- Destination 4 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden" data-destination="indonesia">
 					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/603" alt="Bali, Indonesia">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Bali, Indonesia</h3>
@@ -128,7 +153,7 @@
 				</div>
 
 				<!-- Destination 5 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden" data-destination="australia">
 					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/604" alt="Sydney, Australia">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Sydney, Australia</h3>
@@ -142,7 +167,7 @@
 				</div>
 
 				<!-- Destination 6 -->
-				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden" data-destination="maldives">
 					<img class="w-full h-56 object-cover" src="https://picsum.photos/800/605" alt="Maldives">
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-gray-900">Maldives</h3>
@@ -162,5 +187,48 @@
 	<footer class="bg-gray-800 py-8 text-center text-white">
 		<p>&copy; 2023 Coastal Escape Travel. All rights reserved.</p>
 	</footer>
+
+	<script>
+		const filterSelect = document.getElementById('filter');
+		const sortSelect = document.getElementById('sort');
+		const destinationsContainer = document.getElementById('destinations-container');
+		const destinations = Array.from(destinationsContainer.children);
+
+		function filterDestinations() {
+			const filterValue = filterSelect.value;
+
+			destinations.forEach(destination => {
+				if (filterValue === 'all' || destination.dataset.destination === filterValue) {
+					destination.style.display = 'block';
+				} else {
+					destination.style.display = 'none';
+				}
+			});
+		}
+
+		function sortDestinations() {
+			const sortValue = sortSelect.value;
+
+			destinations.sort((a, b) => {
+				const nameA = a.querySelector('h3').textContent.toLowerCase();
+				const nameB = b.querySelector('h3').textContent.toLowerCase();
+
+				if (sortValue === 'name_asc') {
+					return nameA.localeCompare(nameB);
+				} else if (sortValue === 'name_desc') {
+					return nameB.localeCompare(nameA);
+				}
+				return 0;
+			});
+
+			// Re-append the sorted destinations to the container
+			destinations.forEach(destination => {
+				destinationsContainer.appendChild(destination);
+			});
+		}
+
+		filterSelect.addEventListener('change', filterDestinations);
+		sortSelect.addEventListener('change', sortDestinations);
+	</script>
 </body>
 </html>
