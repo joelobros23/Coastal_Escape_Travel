@@ -3,11 +3,71 @@
 <head>
 	<meta charset='UTF-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<title>Coastal_Escape_Travel</title>
+	<title>Coastal_Escape_Travel - Contact</title>
 	<script src='https://cdn.tailwindcss.com'></script>
 	<link rel='stylesheet' href='assets/css/style.css'>
 </head>
 <body>
-	<!-- Content for contact.html will be generated here -->
+	<!-- Navigation Bar -->
+	<nav class="bg-blue-500 p-4 text-white">
+		<div class="container mx-auto flex justify-between items-center">
+			<a href="index.html" class="text-2xl font-bold">Coastal Escape Travel</a>
+			<div class="space-x-4">
+				<a href="index.html" class="hover:text-gray-200">Home</a>
+				<a href="destinations.html" class="hover:text-gray-200">Destinations</a>
+				<a href="packages.html" class="hover:text-gray-200">Packages</a>
+				<a href="blog.html" class="hover:text-gray-200">Blog</a>
+				<a href="contact.html" class="hover:text-gray-200">Contact</a>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Contact Section -->
+	<section class="container mx-auto py-12 px-4">
+		<h1 class="text-3xl font-semibold text-center mb-8">Contact Us</h1>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<!-- Contact Form -->
+			<div class="bg-white shadow-md rounded-lg p-6">
+				<h2 class="text-xl font-semibold mb-4">Send us a message</h2>
+				<form action="#" method="POST">
+					<div class="mb-4">
+						<label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
+						<input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your name">
+					</div>
+					<div class="mb-4">
+						<label for="email" class="block text-gray-700 text-sm font-bold mb-2">Your Email</label>
+						<input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email">
+					</div>
+					<div class="mb-4">
+						<label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+						<textarea id="message" name="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your message"></textarea>
+					</div>
+					<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+						Submit
+					</button>
+				</form>
+			</div>
+
+			<!-- Contact Information -->
+			<div class="bg-white shadow-md rounded-lg p-6">
+				<h2 class="text-xl font-semibold mb-4">Contact Information</h2>
+				<p class="mb-2"><strong>Address:</strong> 123 Coastal Drive, Seaside Town, CA 91234</p>
+				<p class="mb-2"><strong>Phone:</strong> (555) 123-4567</p>
+				<p class="mb-2"><strong>Email:</strong> info@coastal-escape-travel.com</p>
+
+				<div class="mt-4">
+					<h3 class="text-lg font-semibold mb-2">Business Hours</h3>
+					<p class="mb-1">Monday - Friday: 9:00 AM to 5:00 PM</p>
+					<p class="mb-1">Saturday: 10:00 AM to 2:00 PM</p>
+					<p class="mb-1">Sunday: Closed</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-gray-800 text-white py-4 text-center">
+		<p>&copy; 2023 Coastal Escape Travel. All rights reserved.</p>
+	</footer>
 </body>
 </html>
